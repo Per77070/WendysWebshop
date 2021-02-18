@@ -20,7 +20,7 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHolder> {
-
+public static final String ITEM_ID_KEY = "item_id_key";
     private List<DataItem> mItems;
     private Context mContext;
 
@@ -55,9 +55,11 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "You selected: "+item.getItemName(), Toast.LENGTH_SHORT).show();
+        String itemId=item.getItemId();
+        Intent detailIntent = new Intent(mContext, DetailActivity.class);
+        detailIntent.putExtra(ITEM_ID_KEY,itemId);
 
-                Intent showDetail = new Intent(mContext,DetailActivity.class);
-                mContext.startActivity(showDetail);
+        mContext.startActivity(detailIntent);
 
             }
         });
