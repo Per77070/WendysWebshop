@@ -15,12 +15,17 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-TextView detailTextView = findViewById(R.id.detailTextView);
+        TextView nameTextView = findViewById(R.id.nameTextView);
+        TextView categoryTextView = findViewById(R.id.categoryTextView);
+        TextView descriptionTextView = findViewById(R.id.descriptionTextView);
+        TextView priceTextView = findViewById(R.id.descriptionTextView);
+
 String itemId = getIntent().getExtras().getString(DataItemAdapter.ITEM_ID_KEY);
 DataItem item = SampleDataProvider.dataItemMap.get(itemId);
 
-detailTextView.setText(item.getItemName());
-
+        nameTextView.setText(item.getItemName());
+        categoryTextView.setText(item.getDescription());
+        descriptionTextView.setText(item.getCategory());
 
     }
 }
